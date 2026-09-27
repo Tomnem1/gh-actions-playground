@@ -13,5 +13,5 @@ jobs:
   who-rang:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "I was woken up by the '${{ github.event_name }}' event"
+      - run: echo "I was woken up by '${{ github.event_name }}' event"
       - run: echo "Triggered by user ${{ github.actor }}"
