@@ -6,4 +6,4 @@ jobs:                             # WHAT
   hello-again:                      # a job id (you choose the name)
     runs-on: ubuntu-latest        # WHERE (the runner)
     steps:
-      - run: echo "Hello from my very first workflow"
+      - run: echo "Hello again, this is second workflow from sam repo"
