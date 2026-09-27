@@ -1,4 +1,4 @@
-name: 01 - Hello Workflow        # the name shown in the Actions tab
+name: 01 - Hello Again        # the name shown in the Actions tab
 
 on: push                          # WHEN (the event)
 
