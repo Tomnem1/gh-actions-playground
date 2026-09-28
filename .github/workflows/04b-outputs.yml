@@ -1,0 +1,18 @@
+name: 04b - Passing Notes
+
+on: workflow_dispatch
+
+jobs:
+  pick:
+    runs-on: ubuntu-latest
+    outputs:                                            # 3. the job "exports" the value
+      flavor: ${{ steps.choose.outputs.flavor }}
+    steps:
+      - id: choose                                      # 1. give the step an id
+        run: echo "flavor=pistachio" >> "$GITHUB_OUTPUT" # 2. the step writes key=value
+
+  eat:
+    needs: pick                                         # 4. wait for pick AND get access to its outputs
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🍨 Eating ${{ needs.pick.outputs.flavor }} ice cream"   # 5. read it
