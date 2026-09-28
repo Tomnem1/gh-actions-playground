@@ -1,0 +1,20 @@
+name: 03_Jobs
+
+on: workflow_dispatch
+
+jobs:
+  wash-dishes:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🍽️ washing..." && sleep 10 && echo "done"
+
+  vacuum:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🧹 vacuuming..." && sleep 5 && echo "done"
+
+  relax:
+    needs: [wash-dishes, vacuum]   # waits for BOTH
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🛋️ Chores finished, time to relax"
