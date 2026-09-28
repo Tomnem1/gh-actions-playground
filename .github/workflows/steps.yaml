@@ -1,0 +1,20 @@
+name: 04 - Where Did My File Go?
+
+on: workflow_dispatch
+
+jobs:
+  writer:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step 1 writes a file
+        run: echo "secret note 📝" > note.txt
+
+      - name: Step 2 reads it (same job = same machine)
+        run: cat note.txt              # ✅ works
+
+  reader:
+    needs: writer
+    runs-on: ubuntu-latest
+    steps:
+      - name: Try to read the note from another job
+        run: cat note.txt
