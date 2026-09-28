@@ -1,0 +1,12 @@
+name: 02_B - Paths
+
+on:
+  push:
+    branches: [main]      # condition 1: pushed to main
+    paths:                # condition 2: AND changed a matching file
+      - "notes.txt"
+jobs:
+  notes-changed:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "notes.txt changed on branch ${{ github.ref_name }}"
