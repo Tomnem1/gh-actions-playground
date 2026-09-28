@@ -14,7 +14,7 @@ jobs:
       - run: echo "🧹 vacuuming..." && sleep 5 && echo "done"
 
   relax:
-    needs: [wash-dishes, vacuum]   # waits for BOTH
+#    needs: [wash-dishes, vacuum]   # waits for BOTH
     runs-on: ubuntu-latest
     steps:
       - run: echo "🛋️ Chores finished, time to relax"
