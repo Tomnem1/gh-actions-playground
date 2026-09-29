@@ -1,0 +1,13 @@
+name: 06 - Around the World
+
+on: workflow_dispatch
+
+jobs:
+  hello-os:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - run: echo "Hi! I'm running on ${{ runner.os }}"
+        shell: bash  
