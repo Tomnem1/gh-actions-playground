@@ -1,0 +1,24 @@
+name: 05 - LEGO Bricks
+
+on: workflow_dispatch
+
+jobs:
+  bricks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Look around BEFORE checkout
+        run: ls -la                    # 🫥 empty! the runner doesn't have your repo yet
+
+      - name: Brick 1 - get my repo's code
+        uses: actions/checkout@v6
+
+      - name: Look around AFTER checkout
+        run: ls -la                    # 📂 your files are here now
+
+      - name: Brick 2 - install Node.js
+        uses: actions/setup-node@v6
+        with:                          # inputs for the action
+          node-version: 22
+
+      - name: My own command
+        run: node -e "console.log('Node says hi from', process.version)"
